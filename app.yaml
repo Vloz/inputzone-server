@@ -1,0 +1,33 @@
+application: input-zone
+version: 3
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+- url: /packages
+  static_dir: build/web/packages
+- url: /converters
+  static_dir: build/web/converters
+- url: /res
+  static_dir: build/web/res
+- url: /template.html_bootstrap.dart.js
+  static_files: build/web/template.html_bootstrap.dart.js
+  upload: /build/web/template.html_bootstrap.dart.js
+- url: /register.json
+  static_files: build/web/register.json
+  upload: /build/web/register.json
+
+
+
+- url: .*
+  script: main.app
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
+- name: jinja2
+  version: latest
